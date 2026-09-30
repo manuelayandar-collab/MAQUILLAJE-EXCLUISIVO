@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURA | Maquillaje de Lujo & Marcas Exclusivas</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        serif: ['"Cormorant Garamond"', 'serif'],
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        gold: {
+                            100: '#FAF4E8',
+                            200: '#F3E5C8',
+                            300: '#E5C992',
+                            400: '#D4AF37',
+                            500: '#C59B27',
+                            600: '#A37C1E',
+                        },
+                        rose: {
+                            50: '#FDF8F7',
+                            100: '#F7EBE8',
+                            200: '#E2C2B9',
+                            300: '#C99E93',
+                            800: '#4A2A27',
+                        },
+                        lux: {
+                            black: '#080808',
+                            dark: '#121212',
+                            card: '#181818',
+                            cream: '#FBF9F5',
+                            nude: '#EFE7E1',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #080808;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C99E93;
+            border-radius: 4px;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5E1 0%, #D4AF37 50%, #E2C2B9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .rose-gold-bg {
+            background: linear-gradient(135deg, #D4AF37 0%, #C99E93 100%);
+        }
+        .card-glow:hover {
+            box-shadow: 0 12px 35px -10px rgba(212, 175, 55, 0.25);
+            border-color: rgba(212, 175, 55, 0.45);
+        }
+        .glass-panel {
+            background: rgba(18, 18, 18, 0.85);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+        .swatch-circle {
+            transition: all 0.2s ease;
+        }
+        .swatch-circle:hover {
+            transform: scale(1.25);
+        }
+    </style>
+</head>
+<body class="bg-lux-black text-lux-nude font-sans antialiased min-h-screen flex flex-col selection:bg-rose-300 selection:text-lux-black">
+
+    <div class="bg-gradient-to-r from-lux-dark via-rose-800 to-lux-dark text-center text-[11px] tracking-widest py-2 px-4 border-b border-gold-400/20 uppercase font-medium text-gold-300">
+        ✨ Envíos VIP Express Gratuitos | 3 Muestras de culto Dior, Chanel & Charlotte Tilbury en cada pedido
+    </div>
+
+    <nav class="sticky top-0 z-40 glass-panel border-b border-white/10 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" class="text-lux-nude hover:text-gold-300 focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+
+                <div class="flex-1 text-center md:text-left flex items-center gap-3">
+                    <a href="#" class="font-serif text-3xl font-bold tracking-[0.25em] gold-gradient-text uppercase">
+                        A U R A
+                    </a>
+                    <span class="hidden lg:inline-block text-[10px] tracking-widest text-gray-400 border-l border-gray-700 pl-3 uppercase">
+                        Haute Beauté Exclusivité
+                    </span>
+                </div>
+
+                <div class="hidden md:flex space-x-8 text-xs font-semibold tracking-widest uppercase text-gray-300">
+                    <a href="#catalogo" class="hover:text-gold-300 transition">Colección Exclusiva</a>
+                    <a href="#bestsellers" class="hover:text-gold-300 transition">Best Sellers</a>
+                    <a href="#experiencia" class="hover:text-gold-300 transition">Experiencia VIP</a>
+                </div>
+
+                <div class="flex items-center space-x-4 sm:space-x-6">
+                    <div class="relative hidden sm:block">
+                        <input type="text" id="search-input" placeholder="Buscar Dior, Lip Gloss, Rubor..." 
+                            class="bg-lux-card border border-gray-800 rounded-full py-2 pl-9 pr-4 text-xs text-lux-nude focus:outline-none focus:border-gold-400 w-48 focus:w-64 transition-all duration-300">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-400 text-xs"></i>
+                    </div>
+
+                    <button id="cart-btn" class="relative p-2 text-lux-nude hover:text-gold-300 transition flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-xl"></i>
+                        <span id="cart-count" class="bg-rose-300 text-lux-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border border-lux-black">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-lux-dark border-b border-white/10 px-4 pt-3 pb-6 space-y-3">
+            <input type="text" id="mobile-search-input" placeholder="Buscar producto o marca..." 
+                class="w-full bg-lux-card border border-gray-800 rounded-full py-2 px-4 text-xs text-lux-nude focus:outline-none focus:border-gold-400 mb-2">
+            <a href="#catalogo" class="block text-xs uppercase tracking-wider py-2 text-gray-300 hover:text-gold-300">Colección Exclusiva</a>
+            <a href="#bestsellers" class="block text-xs uppercase tracking-wider py-2 text-gray-300 hover:text-gold-300">Best Sellers</a>
+            <a href="#experiencia" class="block text-xs uppercase tracking-wider py-2 text-gray-300 hover:text-gold-300">Experiencia VIP</a>
+        </div>
+    </nav>
+
+    <header class="relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-lux-black">
+        <div class="absolute inset-0 z-0 opacity-40 mix-blend-luminosity">
+            <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Maquillaje de Lujo Exclusivo" class="w-full h-full object-cover">
+        </div>
+        <div class="absolute inset-0 bg-gradient-to-t from-lux-black via-lux-black/60 to-transparent z-0"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto text-center px-4 sm:px-6 my-16">
+            <span class="inline-block border border-gold-400/40 bg-gold-400/10 text-gold-300 px-5 py-1.5 rounded-full text-xs uppercase tracking-[0.2em] font-semibold mb-6">
+                Haute Horlogerie & Cosmétique
+            </span>
+            <h1 class="text-4xl sm:text-6xl md:text-7xl font-serif font-bold text-white tracking-wide leading-tight mb-6">
+                Los Iconos Más Deseados de <br>
+                <span class="gold-gradient-text italic font-normal">Dior, Chanel & Charlotte Tilbury</span>
+            </h1>
+            <p class="text-sm sm:text-base text-gray-300 max-w-2xl mx-auto font-light mb-8 leading-relaxed">
+                Una curaduría minuciosa con los productos de culto indiscutibles: <span class="text-gold-300 font-medium">Dior Addict Lip Maximizer</span>, <span class="text-gold-300 font-medium">Flawless Filter</span>, <span class="text-gold-300 font-medium">Rare Beauty Soft Pinch</span> y más.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#catalogo" class="w-full sm:w-auto px-9 py-4 rose-gold-bg text-lux-black font-bold text-xs uppercase tracking-widest rounded-full hover:shadow-xl hover:shadow-gold-400/20 hover:scale-105 transition duration-300 text-center">
+                    Ver Catálogo Completo
+                </a>
+                <a href="#experiencia" class="w-full sm:w-auto px-9 py-4 border border-gold-400/50 text-gold-300 hover:bg-gold-400/10 font-bold text-xs uppercase tracking-widest rounded-full transition duration-300 text-center">
+                    Caja de Regalo AURA
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-8 border-y border-white/10 bg-lux-dark/60">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="text-center text-[10px] uppercase tracking-[0.3em] text-gray-400 mb-6 font-semibold">Casas Cosméticas Exclusivas</p>
+            <div class="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center opacity-80 text-center">
+                <button onclick="setFilter('Dior')" class="font-serif text-2xl tracking-[0.2em] text-gray-300 hover:text-gold-300 transition">DIOR</button>
+                <button onclick="setFilter('Charlotte Tilbury')" class="font-serif text-lg tracking-widest text-gray-300 hover:text-gold-300 transition uppercase">Charlotte Tilbury</button>
+                <button onclick="setFilter('Chanel')" class="font-serif text-2xl tracking-[0.2em] text-gray-300 hover:text-gold-300 transition">CHANEL</button>
+                <button onclick="setFilter('Rare Beauty')" class="font-sans font-bold text-base tracking-widest text-gray-300 hover:text-gold-300 transition uppercase">RARE BEAUTY</button>
+                <button onclick="setFilter('Make Up For Ever')" class="font-sans font-semibold text-xs tracking-widest text-gray-300 hover:text-gold-300 transition uppercase">MAKE UP FOR EVER</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="catalogo" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6">
+            <div>
+                <span class="text-xs uppercase tracking-[0.2em] text-rose-300 font-semibold">Curaduría de Alta Costura</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white mt-1">Catálogo Exclusivo</h2>
+            </div>
+
+            <!-- Filter Buttons -->
+            <div id="filter-container" class="flex flex-wrap gap-2">
+                <button data-filter="all" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-gold-400 bg-gold-400 text-lux-black transition duration-300">
+                    Todas las Marcas
+                </button>
+                <button data-filter="Dior" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-gray-800 bg-lux-card text-gray-300 hover:border-gold-400 transition duration-300">
+                    Dior
+                </button>
+                <button data-filter="Charlotte Tilbury" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-gray-800 bg-lux-card text-gray-300 hover:border-gold-400 transition duration-300">
+                    Charlotte Tilbury
+                </button>
+                <button data-filter="Chanel" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-gray-800 bg-lux-card text-gray-300 hover:border-gold-400 transition duration-300">
+                    Chanel
+                </button>
+                <button data-filter="Rare Beauty" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-gray-800 bg-lux-card text-gray-300 hover:border-gold-400 transition duration-300">
+                    Rare Beauty
+                </button>
+                <button data-filter="Make Up For Ever" class="filter-btn px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-wider border border-gray-800 bg-lux-card text-gray-300 hover:border-gold-400 transition duration-300">
+                    Make Up For Ever
+                </button>
+            </div>
+        </div>
+
+        <!-- Products Grid Target -->
+        <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <!-- Dynamic JavaScript Rendering -->
+        </div>
+    </section>
+
+    <section id="experiencia" class="py-20 bg-gradient-to-r from-lux-dark via-rose-800/20 to-lux-dark border-y border-gold-400/20 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row items-center justify-between gap-12">
+            <div class="lg:w-1/2 space-y-6">
+                <span class="text-xs font-semibold uppercase tracking-[0.2em] text-gold-300">El Ritual AURA</span>
+                <h2 class="text-3xl sm:text-5xl font-serif font-bold text-white leading-tight">
+                    Experiencia de Regalo & Muestras Exclusivas
+                </h2>
+                <p class="text-gray-300 text-sm sm:text-base leading-relaxed font-light">
+                    Cada orden se envía en nuestras cajas acartonadas selladas con lazo de raso, papel perfumado y grabado de iniciales gratuito. Incluye 3 muestras mini de culto de Dior, Chanel o Charlotte Tilbury.
+                </p>
+                <div class="space-y-3 text-xs text-gray-300 font-medium">
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full bg-gold-400/20 border border-gold-400/40 flex items-center justify-center text-gold-300 text-[10px]"><i class="fa-solid fa-check"></i></div>
+                        <span>Caja con estampado en pan de oro e interior aromático</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full bg-gold-400/20 border border-gold-400/40 flex items-center justify-center text-gold-300 text-[10px]"><i class="fa-solid fa-check"></i></div>
+                        <span>Opción de grabado láser de nombre o iniciales</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="w-6 h-6 rounded-full bg-gold-400/20 border border-gold-400/40 flex items-center justify-center text-gold-300 text-[10px]"><i class="fa-solid fa-check"></i></div>
+                        <span>Envío Express VIP con seguimiento térmico garantizado</span>
+                    </div>
+                </div>
+            </div>
+            <div class="lg:w-1/2">
+                <div class="relative rounded-2xl overflow-hidden border border-gold-400/30 shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Caja de Regalo de Lujo" class="w-full h-80 sm:h-96 object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-lux-black/80 via-transparent to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 right-6 text-center">
+                        <span class="text-xs uppercase tracking-widest text-gold-300 font-semibold">Caja Edición Limitada Incluida</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="cart-drawer" class="fixed inset-0 z-50 overflow-hidden hidden transition-all duration-300">
+        <div id="cart-backdrop" class="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-lux-dark border-l border-gray-800 flex flex-col justify-between shadow-2xl">
+                <!-- Header -->
+                <div class="p-6 border-b border-gray-800 flex items-center justify-between">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-bag-shopping text-gold-400 text-xl"></i>
+                        <h3 class="font-serif text-xl font-bold text-white">Bolsa de Compras Exclusiva</h3>
+                    </div>
+                    <button id="close-cart-btn" class="text-gray-400 hover:text-white p-2 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Items Container -->
+                <div id="cart-items-container" class="p-6 flex-1 overflow-y-auto space-y-4">
+                    <!-- Injected via JS -->
+                </div>
+
+                <!-- Footer Summary -->
+                <div class="p-6 border-t border-gray-800 bg-lux-card space-y-4">
+                    <div class="space-y-1.5 text-xs text-gray-400">
+                        <div class="flex justify-between">
+                            <span>Subtotal</span>
+                            <span id="cart-subtotal" class="font-bold text-white">$0.00 USD</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>Envío Express VIP</span>
+                            <span class="text-gold-300 font-semibold">GRATIS</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span>3 Muestras de Regalo</span>
+                            <span class="text-gold-300 font-semibold">INCLUIDAS</span>
+                        </div>
+                        <div class="flex justify-between text-sm font-bold text-white pt-2 border-t border-gray-800">
+                            <span>Total</span>
+                            <span id="cart-total" class="font-serif text-lg text-gold-300">$0.00 USD</span>
+                        </div>
+                    </div>
+                    <button id="checkout-btn" class="w-full py-4 rose-gold-bg text-lux-black font-bold text-xs uppercase tracking-widest rounded-full hover:shadow-lg transition duration-300">
+                        Finalizar Pedido VIP
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="product-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div id="modal-backdrop" class="absolute inset-0 bg-black/85 backdrop-blur-md"></div>
+        <div class="relative bg-lux-card border border-gold-400/30 rounded-3xl max-w-3xl w-full p-6 sm:p-8 z-10 overflow-hidden shadow-2xl max-h-[90vh] overflow-y-auto">
+            <button id="close-modal-btn" class="absolute top-4 right-4 text-gray-400 hover:text-white w-8 h-8 rounded-full bg-lux-dark flex items-center justify-center border border-gray-800 z-20">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div id="modal-content" class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <!-- Injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-lux-dark border-t border-gray-800 py-16 text-xs text-gray-400 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-10">
+            <div class="space-y-4">
+                <span class="font-serif text-2xl font-bold gold-gradient-text uppercase tracking-widest">AURA</span>
+                <p class="text-gray-400 leading-relaxed font-light">
+                    Portal exclusivo de cosmética de lujo. 100% productos originales importados directamente de París, Londres y Los Ángeles.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold uppercase tracking-wider mb-4">Marcas de Culto</h4>
+                <ul class="space-y-2">
+                    <li><button onclick="setFilter('Dior')" class="hover:text-gold-300">Dior Beauty</button></li>
+                    <li><button onclick="setFilter('Charlotte Tilbury')" class="hover:text-gold-300">Charlotte Tilbury</button></li>
+                    <li><button onclick="setFilter('Chanel')" class="hover:text-gold-300">Chanel Beauty</button></li>
+                    <li><button onclick="setFilter('Rare Beauty')" class="hover:text-gold-300">Rare Beauty</button></li>
+                    <li><button onclick="setFilter('Make Up For Ever')" class="hover:text-gold-300">Make Up For Ever</button></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-white font-semibold uppercase tracking-wider mb-4">Servicios VIP</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-gold-300"
